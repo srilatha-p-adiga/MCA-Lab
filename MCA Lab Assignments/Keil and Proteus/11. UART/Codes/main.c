@@ -4,12 +4,24 @@
 
 int main()
 {
-	unsigned char temp;
-	init_pll();
+	//char *string_recieve;  //Variable to recieve the string
+	char recieve;          //Variable to recieve the character 
+   init_pll();
 	init_uart0();
 	while(1)
 	{
-		temp=recieve_char_uart0();
-		transmit_char_uart0(temp);
-	}return 0;
+		recieve = recieve_char();
+		sendString("Received:");
+		transmit_char(recieve);
+		sendString("\r\n");
+		
+		/*string_recieve = receive_string();
+		receive_string();
+		//sendString("String Received:");
+		sendString(string_recieve);
+		sendString("\r\n");*/
+	}
 }
+
+
+
